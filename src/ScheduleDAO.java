@@ -26,6 +26,7 @@ public class ScheduleDAO {
 		
 		 String query="SELECT all_users.user_id,all_users.unique_service_number FROM all_users, user_access_type_mapping where all_users.user_id = user_access_type_mapping.user_id\r\n"
 		 		+ "and user_access_type_mapping.user_type_pl_id = 1";
+		 //String query="SELECT all_users.user_id,all_users.unique_service_number FROM all_users where user_id in (80,81)";
 		 pstmt=con.prepareStatement(query);
 		// pstmt.setString(1,controllerId);
 		 ResultSet rs= pstmt.executeQuery();

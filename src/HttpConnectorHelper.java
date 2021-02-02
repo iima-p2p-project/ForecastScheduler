@@ -196,11 +196,11 @@ public class HttpConnectorHelper {
 		URL obj = new URL(url);
 		HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 		con.setRequestMethod("GET");
-		con.setRequestProperty("Content-Type", "application/json");
+		//con.setRequestProperty("Content-Type", "application/json");
 		con.setDoOutput(true);
-		OutputStream os = con.getOutputStream();	
-		os.flush();
-		os.close();
+//		OutputStream os = con.getOutputStream();	
+//		os.flush();
+//		os.close();
 		int responseCode = con.getResponseCode();
 		System.out.println("POST Response Code :: " + responseCode);
 

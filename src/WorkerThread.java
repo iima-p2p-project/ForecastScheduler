@@ -11,7 +11,7 @@ import org.json.JSONObject;
 class WorkerThread implements Runnable {
 	public  int userId;
 	public String usn;
-	
+	final  String urlForForecast ="http://139.59.30.90:8080/et_forecast_test/rest/getForecastFromDevice/";
 	public WorkerThread(int userId, String usn) {
 		this.userId = userId;
 		this.usn = usn;
@@ -50,7 +50,7 @@ class WorkerThread implements Runnable {
 	public void getForecastDataFromAgent() throws ClassNotFoundException, SQLException,IOException {
 		HttpConnectorHelper httpconnectorhelper= new HttpConnectorHelper();
 		int response = httpconnectorhelper
-				.sendPostWithToken("http://localhost:8087/rest/getForecastFromDevice/"+usn);
+				.sendPostWithToken(urlForForecast+usn);
 		
 		
 	}
