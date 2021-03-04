@@ -35,7 +35,7 @@ public class JDBCConnection {
 		/*Connection con=DriverManager.getConnection(  
 				url,userName,password);    */
 		Connection con=DriverManager.getConnection(  
-				"jdbc:mysql://139.59.30.90:3306/energytrade_brpl_bckup?noAccessToProcedureBodies=true","root","Admin@12345");        
+				"jdbc:mysql://139.59.30.90:3306/energytrade_015?noAccessToProcedureBodies=true","root","Admin@12345");        
 //		Connection con=DriverManager.getConnection(  
 //				"jdbc:mysql://134.209.154.124:3306/energytrade?noAccessToProcedureBodies=true","root","SIBRPLDEMO@123");
    

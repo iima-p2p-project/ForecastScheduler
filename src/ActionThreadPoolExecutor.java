@@ -1,4 +1,5 @@
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -7,7 +8,7 @@ import java.util.concurrent.Executors;
 
 public class ActionThreadPoolExecutor {
 
-	public void getStarted() throws ClassNotFoundException, SQLException {
+	public void getStarted() throws ClassNotFoundException, SQLException, IOException {
 		System.out.println("-----------------------------------------------");
 		System.out.println("Before start of all threads");
 		ScheduleDAO sdo= new ScheduleDAO();
@@ -16,16 +17,13 @@ public class ActionThreadPoolExecutor {
 			System.out.println("List of Users" + users.size());
 			if (users.size() > 0) {
 
-				ExecutorService executor = Executors.newFixedThreadPool(users.size());// creating a pool of 1000
+			//	ExecutorService executor = Executors.newFixedThreadPool(users.size());// creating a pool of 1000
 																							// threads
 				for (int i = 0; i < users.size(); i++) {
-					Runnable worker = new WorkerThread((int) users.get(i).get("userId"),(String) users.get(i).get("usn"));
-					System.out.println("List of run workers");
-					executor.execute(worker);// calling execute method of ExecutorService
+					Worker worker = new Worker();
+					worker.getForecastDataFromAgent((int) users.get(i).get("userId"),(String) users.get(i).get("usn"));
 				}
-				executor.shutdown();
-				while (!executor.isTerminated()) {
-				}
+				
 
 			}
 			System.out.println("Finished all threads");
